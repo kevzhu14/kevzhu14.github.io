@@ -429,6 +429,27 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .skills dt:first-child { margin-top: 0; }
 
+/* Wide banner photo */
+.banner {
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+}
+
+.banner img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+  /* Hold the space before the image arrives, so nothing jumps */
+  aspect-ratio: 1306 / 326;
+  object-fit: cover;
+  background: var(--bg-sunk);
+}
+
+.banner figcaption {
+  margin-top: .7rem;
+  font-size: var(--step--1);
+  color: var(--faint);
+}
+
 /* --------------------------------------------------------------------------
    7. Filter bar
    -------------------------------------------------------------------------- */
