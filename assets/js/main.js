@@ -279,6 +279,24 @@
     });
   }
 
+  /* ---------------------------------------------------------------------
+     Clear out the old Jekyll theme's service worker and its caches
+     --------------------------------------------------------------------- */
+
+  function dropStaleServiceWorkers() {
+    if (!('serviceWorker' in navigator)) return;
+
+    navigator.serviceWorker.getRegistrations().then(function (registrations) {
+      registrations.forEach(function (registration) { registration.unregister(); });
+    }).catch(function () { /* nothing we can do */ });
+
+    if (window.caches && caches.keys) {
+      caches.keys().then(function (names) {
+        names.forEach(function (name) { caches.delete(name); });
+      }).catch(function () { /* nothing we can do */ });
+    }
+  }
+
   /* ------------------------------------------------------------------- */
 
   function init() {
@@ -293,6 +311,7 @@
     expandAll();
     anchorFocus();
     printing();
+    dropStaleServiceWorkers();
   }
 
   if (document.readyState === 'loading') {
