@@ -66,7 +66,7 @@ dev:            false
 # Site name
 #
 # Default:      Almace Scaffolding
-name:           Almace Scaffolding
+name:           Kevin Zhu
 
 # Site short name
 #
@@ -82,14 +82,14 @@ name:           Almace Scaffolding
 # - name_short: Sparanoid
 #
 # Default:      AMSF
-name_short:     AMSF
+name_short:     Kevin Zhu
 
 # Site description
 #
 # Will be used in the document meta and Atom feed subtitle
 #
 # Default:      Super-fast Jekyll framework
-description:    Super-fast Jekyll framework
+description:    Chemical Engineering MASc student at the University of Toronto working on machine learning for chemistry, materials, and drug discovery.
 
 # Base URL
 #
@@ -141,7 +141,7 @@ url:            https://kevzhu14.github.io
 # grabs the first image of your post as post featured image.
 #
 # Default:      https://d349cztnlupsuf.cloudfront.net
-file:           https://d349cztnlupsuf.cloudfront.net
+file:           https://kevzhu14.github.io
 
 # Download files URL
 #
@@ -152,13 +152,13 @@ file:           https://d349cztnlupsuf.cloudfront.net
 # download files. That's it. Remove or ignore this if you don't need it.
 #
 # Default:      https://d1bmx7s6749k4k.cloudfront.net
-download:       https://d1bmx7s6749k4k.cloudfront.net
+download:       https://kevzhu14.github.io
 
 # Colors
 #
 # Used by Safari mask-icon, Chrome Web App theme color
 colors:
-  theme:        "#ff00b4"
+  theme:        "#255f9e"
   background:   "#fff"
 
 # Service Worker Precache
@@ -176,7 +176,7 @@ google_analytics:
   url:          https://www.google-analytics.com/analytics.js
 
 # Site Twitter account handle
-twitter:        sparanoid
+twitter:        
 
 # Twitter Cards large images
 #

@@ -1,15 +1,16 @@
 ---
 layout: page
-title: Error‽
+title: Page not found
 permalink: /404.html
-desc: 錯誤・エラー・Oops
+desc: Error 404
 category: home
 hidden: true
-css: |
-  :root {
-    filter: invert(100%);
-  }
 ---
 
 <p>The requested URL was not found on this server.</p>
-<p>I’m sorry, you can close this tab now.</p>
+
+<p>Try the <a href="{{ '/' | relative_url }}">homepage</a>, or my
+<a href="{{ '/research/' | relative_url }}">research</a>,
+<a href="{{ '/publications/' | relative_url }}">publications</a>,
+<a href="{{ '/teaching/' | relative_url }}">teaching</a>, or
+<a href="{{ '/cv/' | relative_url }}">CV</a>.</p>

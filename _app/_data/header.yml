@@ -1,8 +1,17 @@
 - title: __home__
   url:   /
 
-- title: News
-  url:   /news/
+- title: Research
+  url:   /research/
+
+- title: Publications
+  url:   /publications/
+
+- title: Teaching
+  url:   /teaching/
+
+- title: CV
+  url:   /cv/
 
 - title: About
   url:   /about/

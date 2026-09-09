@@ -9,43 +9,63 @@ thumb_force_logo: true
 <!-- Article wrapper, limit width -->
 <article>
 
-  <!-- Post title -->
+  <!-- Page title -->
   <header>
+    <h1>Kevin Zhu</h1>
 
-    <h1 class="image-title">
-      Almace Scaffolding
-      <img src="{{ amsf_user_assets }}/svg/amsf.svg">
-    </h1>
+    <h2 class="sub-title">Machine learning for chemistry, materials, and drug discovery.</h2>
 
-    <h2 class="sub-title">A super-fast Jekyll framework fighting against the website obesity.</h2>
-
-    <small>a.k.a. <b>AMSF</b>&#x30FB;ver. <b class="amsf-version">2.0.24</b>&#x30FB;view it on <a href="https://github.com/sparanoid/almace-scaffolding">GitHub</a></small>
+    <small>
+      MASc student, Chemical Engineering &#x30FB;
+      <a href="https://www.utoronto.ca/">University of Toronto</a> &#x30FB;
+      Graduate Researcher, <a href="https://vectorinstitute.ai/">Vector Institute</a>
+    </small>
   </header>
 
   <div class="page-content">
-    <h2>Getting Started</h2>
-    {% for post in site.tags.getting-started %}
-      {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
-    {% endfor %}
 
-    <h2>Customization</h2>
-    {% for post in site.tags.customization %}
-      {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
-    {% endfor %}
+    <p>I am a Chemical Engineering MASc student at the University of Toronto, working at the
+    intersection of machine learning and the chemical sciences. My research uses deep generative
+    models, graph neural networks, and Gaussian processes to make structure&ndash;property and
+    structure&ndash;function relationships learnable &mdash; across protein binding pockets, polymers,
+    and environmental process data.</p>
 
-    <h2>Theme Curtana</h2>
-    {% for post in site.tags.curtana %}
-      {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
-    {% endfor %}
+    <p>Before machine learning, I was trained as a synthetic and analytical chemist: photoredox
+    catalysis towards threose nucleosides, combinatorial organophosphate libraries, and quantitative
+    NMR. That wet-lab background is what I bring to modelling work &mdash; and to the classroom.</p>
 
-    <h2>Deployment</h2>
-    {% for post in site.tags.deployment %}
-      {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
-    {% endfor %}
+    <p>I am also an aspiring educator and knowledge translator, and I actively seek teaching
+    assistantships in chemistry and materials science, machine learning, data science, and Python
+    programming. <a href="{{ '/teaching/' | relative_url }}">See my teaching experience &rarr;</a></p>
 
-    <h2>Miscellaneous</h2>
-    {% for post in site.tags.miscellaneous %}
-      {%- include themes/{{ site.amsf_theme }}/includes/page-item.html -%}
-    {% endfor %}
+    <h2>Currently</h2>
+
+    <ul>
+      <li><b>LatentPockets</b> &mdash; mapping structurally unique protein binding subpockets with
+      variational autoencoders, to expedite target selection for structure-based drug design.</li>
+
+      <li><b>Deep kernel learning for polymers</b> &mdash; fusing molecular graphs with process
+      conditions across 6 datasets and 13 targets, and attributing structure- vs. process
+      contributions via integrated gradients.</li>
+
+      <li><b>Forecasting benchmarks for water treatment</b> &mdash; anomaly detection and turbidity
+      forecasting for an Ontario water treatment plant, and an honest account of why persistence is
+      hard to beat.</li>
+    </ul>
+
+    <p><a href="{{ '/research/' | relative_url }}">Read more about my research &rarr;</a></p>
+
+    <h2>Elsewhere</h2>
+
+    <ul>
+      <li>Email &mdash; <a href="mailto:kevzhu14@outlook.com">kevzhu14@outlook.com</a></li>
+      <li>LinkedIn &mdash; <a href="https://www.linkedin.com/in/kevin-zhu-a30a71215">kevin-zhu-a30a71215</a></li>
+      <li>GitHub &mdash; <a href="https://github.com/kevzhu14">kevzhu14</a></li>
+    </ul>
+
+    <p>Away from the desk I race for the <b>Canadian National Dragon Boat Team</b> and the
+    <b>Iron Dragons Paddling Club</b>.
+    <a href="{{ '/about/' | relative_url }}">More about me &rarr;</a></p>
+
   </div>
 </article>

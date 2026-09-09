@@ -3,35 +3,47 @@
 // -----------------------------------------------------------------------------
 // NOTE: the following user styles are designed for default theme Curtana
 
-// EXAMPLE: alternative title size
-// By default all heading levels have the same font size, but many people may
-// not like this, so here's an alternative font size stack:
-// .content {
-//   h2 { font-size: 108%; opacity: .8; }
-//   h3 { font-size: 96%;  opacity: .7; }
-//   h4 { font-size: 84%;  opacity: .6; }
-//   h5 { font-size: 72%;  opacity: .5; }
-//   h6 { font-size: 60%;  opacity: .4; }
-// }
-
-// EXAMPLE: alternative post title color
-// This is useful when you're using the custom color scheme.
-// .content { .list h2 a, header h1, header h1 a { color: var(--link-color); } }
-// .external span { background: var(--link-color); }
-
-// EXAMPLE: Custom typography for Chinese Traditional
-// :root {
-//   --fontstack-sans-serif: "Helvetica Neue", "Hiragino Sans GB", Arial, sans-serif;
-//   --fontstack-serif: Georgia, "Hiragino Mincho ProN", serif;
-// }
-
-// EXAMPLE: amsf.github.io custom appearance
+// Site color scheme: a restrained navy, matching the CV
 :root {
+  --text-color-h: 215;
+  --text-color-s: 22%;
+  --text-color-l: 14%;
+
+  --link-color-h: 210;
+  --link-color-s: 62%;
+  --link-color-l: 38%;
+
   --code-color-h: calc(var(--link-color-h) + 10);
   --code-color-s: calc(var(--link-color-s) * .2 + 40%);
 }
 
-.content .sub-title {
-  font-size: 108%;
-  opacity: .8;
+// Slightly brighter links on dark backgrounds
+@media (prefers-color-scheme: dark) {
+  :root {
+    --link-color-l: 62%;
+  }
+}
+
+.content {
+  // Tagline under the site title
+  .sub-title {
+    font-size: 108%;
+    opacity: .8;
+  }
+
+  // Give headings a visible hierarchy: the theme sets every level to one size
+  h2 {
+    font-size: 116%;
+    margin-top: 1.8em;
+  }
+
+  h3 {
+    font-size: 102%;
+    opacity: .85;
+  }
+
+  // Breathing room in the long CV / research lists
+  li {
+    margin-bottom: .35em;
+  }
 }

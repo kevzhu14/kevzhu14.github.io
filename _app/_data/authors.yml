@@ -7,13 +7,7 @@
 # {{ author.web }}: used in atom feed
 # {{ author.twitter }}: used by Twitter Cards
 default:
-  name:         Sparanoid
-  email:        t@sparanoid.com
-  web:          https://sparanoid.com/
-  twitter:      sparanoid
-
-tester:
-  name:         Tester
-  email:        test@test.com
-  web:          https://example.com/
-  twitter:      tester
+  name:         Kevin Zhu
+  email:        kevzhu14@outlook.com
+  web:          https://kevzhu14.github.io/
+  twitter:
