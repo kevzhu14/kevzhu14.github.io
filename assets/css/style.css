@@ -800,21 +800,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   max-width: var(--measure);
 }
 
-.interests {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .4rem;
-  margin-top: 1.5rem;
-}
-
-.interests li {
-  font-size: var(--step--1);
-  border: 1px dashed var(--rule);
-  border-radius: 999px;
-  padding: .3rem .8rem;
-  color: var(--muted);
-}
-
 /* --------------------------------------------------------------------------
    12. Footer
    -------------------------------------------------------------------------- */
