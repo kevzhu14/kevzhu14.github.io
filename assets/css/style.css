@@ -61,6 +61,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Any display rule (e.g. .pubs > li's grid) outranks the browser's own
+   [hidden] style, which would leave filtered-out items on screen. */
+[hidden] { display: none !important; }
+
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
@@ -659,11 +663,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   grid-template-columns: 5.5rem 1fr;
   gap: 1.25rem;
   padding: 1.35rem 0;
-  border-top: 1px solid var(--rule);
   max-width: 58rem;
 }
 
-.pubs > li:first-child { border-top: 0; }
+/* Rule only below a visible row, so a filtered list never opens with a line. */
+.pubs > li:not([hidden]) ~ li { border-top: 1px solid var(--rule); }
 
 .pubs__when {
   font-family: var(--mono);
