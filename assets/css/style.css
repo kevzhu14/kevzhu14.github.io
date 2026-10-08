@@ -362,6 +362,19 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .link-chip svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
 
+/* Icons sit slightly below the cap height so they optically centre with text */
+.chip-icon {
+  width: 1.05em;
+  height: 1.05em;
+  fill: currentColor;
+  flex: none;
+  opacity: .75;
+  transform: translateY(.03em);
+  transition: opacity .15s var(--ease);
+}
+
+.link-chip:hover .chip-icon { opacity: 1; }
+
 /* --------------------------------------------------------------------------
    6. Prose + about
    -------------------------------------------------------------------------- */
