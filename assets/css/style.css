@@ -872,28 +872,24 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .site-footer {
   border-top: 1px solid var(--rule);
-  padding: clamp(3rem, 6vw, 4.5rem) 0 3rem;
+  padding: 1.75rem 0;
   background: var(--bg-sunk);
 }
 
 .footer__grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: .75rem 2rem;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: baseline;
 }
+
+.footer__grid .footer__note { margin: 0; }
 
 .footer__note {
   font-size: var(--step--1);
   color: var(--faint);
   max-width: 30ch;
-}
-
-.footer__title {
-  font-family: var(--serif);
-  font-size: var(--step-2);
-  margin-bottom: .5rem;
 }
 
 .to-top {
