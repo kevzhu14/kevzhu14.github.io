@@ -375,6 +375,22 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .link-chip:hover .chip-icon { opacity: 1; }
 
+/* Institution marks, set inline right before the name they belong to.
+   Sized in em so they track whatever text they sit in. */
+.org { white-space: nowrap; }
+
+.org-mark {
+  display: inline-block;          /* base img rule is display:block */
+  width: auto;
+  height: 1.2em;
+  margin-right: .32em;
+  vertical-align: -.24em;
+}
+
+/* Optical balancing: a solid tile reads heavier than a shield of equal height */
+.org-mark--tile { height: 1.05em; vertical-align: -.16em; border-radius: 3px; }
+.org-mark--shield { height: 1.25em; vertical-align: -.27em; }
+
 /* --------------------------------------------------------------------------
    6. Prose + about
    -------------------------------------------------------------------------- */
@@ -572,6 +588,39 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--faint);
   white-space: nowrap;
 }
+
+/* Research cards carry an institution tile in their own leading column */
+.entries--logos .entry__summary { grid-template-columns: auto 1fr auto auto; }
+.entries--logos .entry__role   { grid-column: 2; }
+.entries--logos .entry__when   { grid-column: 3; }
+.entries--logos .entry__marker { grid-column: 4; }
+
+.entry__logo {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.entry__logo img { display: block; }
+
+/* Shield: sits on a quiet tile so its white chief has an edge to read against */
+.entry__logo--boxed {
+  background: var(--bg-sunk);
+  border: 1px solid var(--rule);
+}
+.entry__logo--boxed img { height: 74%; width: auto; }
+
+/* Logos that already are tiles fill the slot as they are */
+.entry__logo--fill img { width: 100%; height: 100%; object-fit: cover; }
+/* hairline ring so a dark tile keeps its edge on the dark theme's cards */
+.entry__logo--fill { box-shadow: 0 0 0 1px var(--rule); }
+.entry__logo--bare img { width: 100%; height: 100%; object-fit: contain; }
 
 .entry__marker {
   grid-column: 3;
@@ -900,6 +949,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   .entry__summary { grid-template-columns: 1fr auto; }
   .entry__when { grid-column: 1; grid-row: 2; }
   .entry__marker { grid-row: 1 / span 2; }
+  .entries--logos .entry__summary { grid-template-columns: auto 1fr auto; }
+  .entries--logos .entry__logo    { grid-row: 1 / span 2; width: 2.25rem; height: 2.25rem; }
+  .entries--logos .entry__role    { grid-column: 2; }
+  .entries--logos .entry__when    { grid-column: 2; grid-row: 2; }
+  .entries--logos .entry__marker  { grid-column: 3; grid-row: 1 / span 2; }
   .brand { font-size: var(--step-0); }
   .nav a { padding: .5rem .45rem; letter-spacing: .02em; }
   .site-header__inner { gap: .75rem; }
