@@ -297,6 +297,68 @@
     }
   }
 
+  /* ---------------------------------------------------------------------
+     Engagement events for GoatCounter (no-op if the counter is blocked
+     or hasn't loaded). Page views are counted by count.js itself.
+     --------------------------------------------------------------------- */
+
+  function analytics() {
+    function track(path, title) {
+      if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+        window.goatcounter.count({ path: path, title: title || path, event: true });
+      }
+    }
+
+    function slug(text) {
+      return text.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    }
+
+    document.addEventListener('click', function (event) {
+      var el = event.target.closest('a, button, summary');
+      if (!el) return;
+
+      // Contact buttons in the hero
+      if (el.matches('a.link-chip')) {
+        var label = el.textContent.trim();
+        track('contact/' + slug(label), 'Contact: ' + label);
+        return;
+      }
+
+      // Publication links
+      if (el.matches('a[href*="doi.org"]')) {
+        track('doi/' + el.getAttribute('href').replace(/^https?:\/\/doi\.org\//, ''), 'DOI: CoSyER preprint');
+        return;
+      }
+
+      // Topic / type filters
+      if (el.matches('[data-filter]')) {
+        var group = el.closest('[data-filter-group]');
+        var list = group ? group.dataset.filterGroup.replace('#', '').replace('-list', '') : 'list';
+        track('filter/' + list + '/' + el.dataset.filter, 'Filter ' + list + ': ' + el.textContent.trim());
+        return;
+      }
+
+      // Expand all (count expanding only)
+      if (el.matches('[data-expand-all]')) {
+        if (el.getAttribute('aria-expanded') !== 'true') {
+          var which = el.dataset.expandAll.replace('#', '').replace('-list', '');
+          track('expand-all/' + which, 'Expand all: ' + which);
+        }
+        return;
+      }
+
+      // A single research or teaching card being opened (state is pre-toggle here)
+      if (el.matches('summary.entry__summary')) {
+        var details = el.parentElement;
+        if (details && !details.open) {
+          var role = el.querySelector('.entry__role');
+          var name = role ? role.firstChild.textContent.trim() : el.textContent.trim();
+          track('open/' + slug(name), 'Opened: ' + name);
+        }
+      }
+    }, true);  // capture: read each control's state before its own handler changes it
+  }
+
   /* ------------------------------------------------------------------- */
 
   function init() {
@@ -312,6 +374,7 @@
     anchorFocus();
     printing();
     dropStaleServiceWorkers();
+    analytics();
   }
 
   if (document.readyState === 'loading') {
