@@ -169,21 +169,30 @@
     var groups = document.querySelectorAll('[data-filter-group]');
 
     Array.prototype.forEach.call(groups, function (group) {
-      var list = document.querySelector(group.dataset.filterGroup);
-      if (!list) return;
+      var lists = Array.prototype.slice.call(document.querySelectorAll(group.dataset.filterGroup));
+      if (!lists.length) return;
 
-      var items = Array.prototype.slice.call(list.children);
       var chips = Array.prototype.slice.call(group.querySelectorAll('[data-filter]'));
-      var empty = list.parentNode.querySelector('.filter-empty');
+      var empty = lists[0].parentNode.querySelector('.filter-empty');
 
       function apply(value) {
         var shown = 0;
 
-        items.forEach(function (item) {
-          var tags = (item.dataset.tags || '').split(/\s+/);
-          var match = value === 'all' || tags.indexOf(value) !== -1;
-          item.hidden = !match;
-          if (match) shown++;
+        lists.forEach(function (list) {
+          var listShown = 0;
+
+          Array.prototype.forEach.call(list.children, function (item) {
+            var tags = (item.dataset.tags || '').split(/\s+/);
+            var match = value === 'all' || tags.indexOf(value) !== -1;
+            item.hidden = !match;
+            if (match) listShown++;
+          });
+
+          // A list's own heading (e.g. "Selected projects") hides with it
+          var head = list.previousElementSibling;
+          if (head && head.classList.contains('subhead')) head.hidden = listShown === 0;
+
+          shown += listShown;
         });
 
         chips.forEach(function (chip) {
@@ -211,10 +220,9 @@
     var buttons = document.querySelectorAll('[data-expand-all]');
 
     Array.prototype.forEach.call(buttons, function (button) {
-      var list = document.querySelector(button.dataset.expandAll);
-      if (!list) return;
-
-      var entries = Array.prototype.slice.call(list.querySelectorAll('details'));
+      var entries = Array.prototype.slice.call(document.querySelectorAll(
+        button.dataset.expandAll.split(',').map(function (sel) { return sel.trim() + ' details'; }).join(', ')));
+      if (!entries.length) return;
 
       function sync() {
         var allOpen = entries.every(function (d) { return d.open; });
@@ -333,7 +341,7 @@
       // Topic / type filters
       if (el.matches('[data-filter]')) {
         var group = el.closest('[data-filter-group]');
-        var list = group ? group.dataset.filterGroup.replace('#', '').replace('-list', '') : 'list';
+        var list = group ? group.dataset.filterGroup.split(',')[0].trim().replace('#', '').replace('-list', '') : 'list';
         track('filter/' + list + '/' + el.dataset.filter, 'Filter ' + list + ': ' + el.textContent.trim());
         return;
       }
@@ -341,7 +349,7 @@
       // Expand all (count expanding only)
       if (el.matches('[data-expand-all]')) {
         if (el.getAttribute('aria-expanded') !== 'true') {
-          var which = el.dataset.expandAll.replace('#', '').replace('-list', '');
+          var which = el.dataset.expandAll.split(',')[0].trim().replace('#', '').replace('-list', '');
           track('expand-all/' + which, 'Expand all: ' + which);
         }
         return;

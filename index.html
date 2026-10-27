@@ -102,10 +102,14 @@
           machine learning, applying scientific intuition towards my modelling and my
           <a href="#teaching">teaching</a>.</p>
 
-          <p class="prose">Outside the lab I raced for the Canadian National Dragon Boat Team
-          (3&times; gold, 3&times; silver at the 2025 IDBF World Championships in Germany) and the Iron Dragons
-          Paddling Club. I was also President of the U&nbsp;of&nbsp;T Run Club from 2024 to 2025,
-          leading the campus&rsquo; largest student organization.</p>
+          <p class="prose">Outside the lab I raced for the Canadian National Dragon Boat Team,
+          selected 13 of 66 at the national team selection camp (3&times; gold, 3&times; silver at
+          the 2025 IDBF World Championships in Germany), and the Iron Dragons Paddling Club
+          (1&times; gold, 2&times; silver, 3&times; bronze at the 2024 Club Crew World Championships
+          in Italy). I was also President of the U&nbsp;of&nbsp;T Run Club from 2024 to 2025,
+          leading the campus&rsquo; largest student organization: I made it official
+          U&nbsp;of&nbsp;T Sport &amp; Recreation programming and organized an ~80-runner charity
+          race that raised $500+ for a pedestrian footbridge in Bolivia.</p>
 
           <figure class="inline-figure">
             <img src="assets/img/nationalteam.jpeg"
@@ -125,8 +129,8 @@
                 <span class="edu__where"><span class="org"><img class="org-mark org-mark--shield" src="assets/img/logos/uoft-shield.png" alt="" width="20" height="20" decoding="async">University of Toronto</span></span>
                 <span class="edu__when">2025 &ndash; Summer 2027 (expected)</span>
                 <p class="edu__note">Thesis: deep probabilistic &amp; generative models for
-                uncertainty-aware experimental research guidance. NSERC CREATE for Accelerated
-                Discovery trainee. Coursework: AI for Applied Chemistry &amp; Chemical Engineering
+                uncertainty-aware experimental research guidance. NSERC CREATE Trainee, Acceleration
+                Consortium (AI &amp; automation for materials discovery). Coursework: AI for Applied Chemistry &amp; Chemical Engineering
                 (A+); Chemical Data Science &amp; Engineering (A+); Fundamentals of Chemical
                 Engineering (A&minus;).</p>
               </li>
@@ -134,8 +138,8 @@
                 <span class="edu__degree">HBSc, Pharmaceutical Chemistry</span>
                 <span class="edu__where"><span class="org"><img class="org-mark org-mark--shield" src="assets/img/logos/uoft-shield.png" alt="" width="20" height="20" decoding="async">University of Toronto</span> &middot; Focus in Practical Chemical Analysis</span>
                 <span class="edu__when">2021 &ndash; 2025</span>
-                <p class="edu__note">Dean&rsquo;s List, all years. Two organic chemistry
-                theses.</p>
+                <p class="edu__note">Dean&rsquo;s List, all years. Two research theses, both graded
+                A.</p>
               </li>
             </ul>
           </div>
@@ -144,13 +148,19 @@
             <h3 class="subhead">Technical skills</h3>
             <dl class="skills">
               <dt>ML &amp; DL</dt>
-              <dd>PyTorch, PyTorch Geometric, GPyTorch, BoTorch/Ax, Hugging Face Transformers,
-              scikit-learn, XGBoost, Optuna</dd>
+              <dd>PyTorch, PyTorch Geometric, GPyTorch, Hugging Face Transformers, scikit-learn,
+              XGBoost, Optuna</dd>
               <dt>Methods</dt>
               <dd>Graph neural networks; Gaussian processes &amp; deep kernel learning; VAEs &amp;
               diffusion models; protein language models; Bayesian optimization; uncertainty
               quantification; time-series forecasting; interpretability (integrated gradients,
               SHAP)</dd>
+              <dt>Optimization</dt>
+              <dd>BoTorch/Ax, TuRBO, CMA-ES, differential evolution, BOBYQA; COCO/BBOB
+              benchmarking</dd>
+              <dt>LLM agents</dt>
+              <dd>Claude Code &amp; Codex CLI agents, MCP tool servers, sandboxed agent
+              evaluation</dd>
               <dt>Data &amp; software</dt>
               <dd>Python, NumPy, SciPy, pandas, SQL, MongoDB, MQTT, Git, Bash, Linux, pytest</dd>
               <dt>HPC &amp; cloud</dt>
@@ -172,13 +182,13 @@
       <div class="section__head reveal">
         <h2 class="section__title" id="research-title">Research</h2>
         <span class="section__count">02</span>
-        <button class="expand-all" type="button" data-expand-all="#research-list" aria-expanded="false">Expand all</button>
+        <button class="expand-all" type="button" data-expand-all="#research-list, #projects-list" aria-expanded="false">Expand all</button>
       </div>
 
       <p class="section__intro reveal">Machine learning for chemical and biological data, built on
       bench chemistry. Filter by topic or open an entry for details.</p>
 
-      <div class="filters reveal" role="group" aria-label="Filter research by topic" data-filter-group="#research-list">
+      <div class="filters reveal" role="group" aria-label="Filter research by topic" data-filter-group="#research-list, #projects-list">
         <span class="filters__label">Topic</span>
         <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
         <button class="chip" type="button" data-filter="ml" aria-pressed="false">Machine learning</button>
@@ -189,7 +199,7 @@
       </div>
 
       <ul class="entries entries--logos" id="research-list">
-        <li data-tags="ml drug polymers env">
+        <li data-tags="ml drug polymers">
           <details class="entry reveal">
             <summary class="entry__summary">
               <span class="entry__logo entry__logo--bare" aria-hidden="true"><img src="assets/img/logos/chemical-cognition-lab.png" alt="" width="40" height="40" loading="lazy" decoding="async"></span>
@@ -205,18 +215,17 @@
                 representations from protein&ndash;ligand data, helping experimental researchers
                 with drug target selection in filling structural biology data gaps. Oral Talk,
                 CSC 2026, Toronto.</li>
-                <li><strong>Turbidity forecasting.</strong> TCN forecasting and anomaly-detection
-                benchmark on 10+ years of raw Ontario water treatment plant data, reducing costs from
-                excess upstream coagulant dosing. Traced its predictive ceiling to low target
-                variance (0.0015 NTU&sup2;) against a &plusmn;0.02 NTU sensor noise floor.</li>
-                <li><strong>Deep kernel learning for polymers.</strong> GNN + Gaussian process
-                models for low-data polymer property prediction across 6 datasets and 13 targets,
-                fusing molecular graphs with process conditions. Integrated gradients attributed
-                most of the signal to process variables.</li>
+                <li><strong>Deep kernel learning for polymers.</strong> Benchmarked graph neural
+                networks with spectral-normalized Gaussian processes for low-data polymer property
+                prediction across 6 datasets and 13 targets, fusing molecular graphs with process
+                conditions. Attributed structure vs. process contributions via integrated gradients
+                and GP-SHAP.</li>
               </ul>
+              <p class="entry__note">In collaboration with the Structural Genomics Consortium (SGC)
+              and NC State University.</p>
               <ul class="tags">
                 <li class="tag">VAEs</li><li class="tag">Diffusion models</li><li class="tag">GNNs</li>
-                <li class="tag">Gaussian processes</li><li class="tag">Time series</li>
+                <li class="tag">Gaussian processes</li>
               </ul>
             </div>
           </details>
@@ -323,6 +332,57 @@
           </details>
         </li>
       </ul>
+
+      <h3 class="subhead projects__head">Selected projects</h3>
+      <ul class="entries" id="projects-list">
+        <li data-tags="ml polymers">
+          <details class="entry reveal">
+            <summary class="entry__summary">
+              <span class="entry__role">LLM-Guided Autonomous Optimization Agent<span class="entry__badge">In progress</span>
+                <span class="entry__org">Open Scientific Intelligence Hackathon</span>
+              </span>
+              <span class="entry__when">Oct 2026</span>
+              <span class="entry__marker" aria-hidden="true"></span>
+            </summary>
+            <div class="entry__body">
+              <ul class="bullets">
+                <li>An autonomous agent that uses frontier LLMs to select and tune optimization
+                algorithms and strategies during live optimization runs, grounding its decisions
+                in literature retrieved via the Valency MCP.</li>
+                <li>Early results outperform individual algorithms on standard benchmarks and on
+                four real materials-discovery tasks (organic solar cells/polymers, MOFs,
+                self-driving-lab robot handling, small molecules). Manuscript in preparation.</li>
+              </ul>
+              <ul class="tags">
+                <li class="tag">LLM agents</li><li class="tag">Bayesian optimization</li><li class="tag">Benchmarking</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li data-tags="ml env">
+          <details class="entry reveal">
+            <summary class="entry__summary">
+              <span class="entry__role">Turbidity Forecasting &amp; Anomaly Detection
+                <span class="entry__org">Course project &middot; University of Toronto</span>
+              </span>
+              <span class="entry__when">Jan &ndash; Apr 2026</span>
+              <span class="entry__marker" aria-hidden="true"></span>
+            </summary>
+            <div class="entry__body">
+              <ul class="bullets">
+                <li>TCN forecasting and anomaly-detection benchmark on 10+ years of raw Ontario
+                water treatment plant data, aimed at reducing excess upstream coagulant dosing.</li>
+                <li>Traced its predictive ceiling to low target variance (0.0015 NTU&sup2;)
+                against a &plusmn;0.02 NTU sensor noise floor.</li>
+              </ul>
+              <ul class="tags">
+                <li class="tag">Time series</li><li class="tag">Anomaly detection</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+      </ul>
       <p class="filter-empty" hidden>No entries match that topic.</p>
     </div>
   </section>
@@ -366,7 +426,7 @@
             <p class="pubs__title">LatentPockets: Addressing Structural Biology Data Gaps by
             Learning over Protein Subpockets</p>
             <p class="pubs__meta">Canadian Societies for Chemistry and Chemical Engineering
-            Conferences and Exhibition (x2026) &middot; Toronto, ON.</p>
+            Conferences and Exhibition &middot; Toronto, ON.</p>
           </div>
         </li>
 
@@ -388,7 +448,7 @@
             <p class="pubs__title">Combinatorial Organophosphate Synthesis for High-Throughput
             Structure-Activity Relationship</p>
             <p class="pubs__meta">Southern Ontario Undergraduate Student Chemistry Conference
-            &middot; University of Western Ontario.</p>
+            &middot; Western University.</p>
           </div>
         </li>
 

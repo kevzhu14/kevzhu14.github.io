@@ -572,6 +572,33 @@ ul { margin: 0; padding: 0; list-style: none; }
   grid-column: 1;
 }
 
+/* Status badge set after a card title, e.g. "In progress" */
+.entry__badge {
+  display: inline-block;
+  margin-left: .55rem;
+  vertical-align: .22em;
+  font-family: var(--sans);
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  border-radius: 4px;
+  padding: .16rem .45rem;
+}
+
+/* Quiet one-liner inside a card body (e.g. collaborators) */
+.entry__note {
+  margin: .9rem 0 0;
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+/* "Selected projects" divider inside the Research section */
+.projects__head { margin: 2.5rem 0 .9rem; }
+
 .entry__org {
   display: block;
   font-family: var(--sans);
@@ -945,6 +972,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .entry__summary { grid-template-columns: 1fr auto; }
   .entry__when { grid-column: 1; grid-row: 2; }
   .entry__marker { grid-row: 1 / span 2; }
+  .entry__badge { display: block; width: fit-content; margin: .4rem 0 .15rem; vertical-align: 0; }
   .entries--logos .entry__summary { grid-template-columns: auto 1fr auto; }
   .entries--logos .entry__logo    { grid-row: 1 / span 2; width: 2.25rem; height: 2.25rem; }
   .entries--logos .entry__role    { grid-column: 2; }
