@@ -289,31 +289,30 @@ ul { margin: 0; padding: 0; list-style: none; }
   scroll-margin-top: var(--header-h);
 }
 
-/* Wide photo across the top of the hero. The file is 2:1; the frame is
-   cropped to 3:1 on desktop and opened up on phones, so the slide and the
-   speaker stay in view at every width. */
-.hero__banner {
-  margin: calc(clamp(3rem, 9vw, 6.5rem) * -0.55) 0 clamp(2rem, 5vw, 3.25rem);
-}
+/* Edge-to-edge photo above the hero. The file is 2:1; the height scales
+   with the viewport (and is capped on very wide screens), and the focal
+   point keeps the slide title and the speaker in frame at every width. */
+.banner { margin: 0; }
 
-.hero__banner img {
+.banner img {
   width: 100%;
-  aspect-ratio: 3 / 1;
+  height: clamp(15rem, 33vw, 42rem);
   object-fit: cover;
-  object-position: 50% 33%;
-  border-radius: 10px;
-  border: 1px solid var(--rule);
+  object-position: 50% 30%;
   background: var(--bg-sunk);
+  border-bottom: 1px solid var(--rule);
 }
 
-.hero__banner figcaption {
-  margin-top: .55rem;
+.banner figcaption {
+  margin-top: .6rem;
   font-size: var(--step--1);
   color: var(--faint);
 }
 
+.banner + .hero { padding-top: clamp(2rem, 5vw, 3.5rem); }
+
 @media (max-width: 34rem) {
-  .hero__banner img { aspect-ratio: 3 / 2; object-position: 30% 50%; }
+  .banner img { object-position: 30% 50%; }
 }
 
 .hero__grid {
