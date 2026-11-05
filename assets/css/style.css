@@ -283,18 +283,18 @@ ul { margin: 0; padding: 0; list-style: none; }
   scroll-margin-top: var(--header-h);
 }
 
-/* Edge-to-edge photo above the hero. The file is 2:1; the height scales
-   with the viewport (and is capped on very wide screens), and the focal
-   point keeps the slide title and the speaker in frame at every width. */
-.banner { margin: 0; }
+/* Edge-to-edge photo between the hero and About. The file is the whole
+   frame width at 2:1, so it shows the slide and the speaker head to thigh;
+   the height scales with the viewport (capped on very wide screens). */
+.banner { margin: 0 0 clamp(2.25rem, 5vw, 3.5rem); }
 
 .banner img {
   width: 100%;
-  height: clamp(15rem, 33vw, 42rem);
+  height: clamp(16rem, 42vw, 64rem);
   object-fit: cover;
-  object-position: 50% 30%;
+  object-position: 55% 38%;
   background: var(--bg-sunk);
-  border-bottom: 1px solid var(--rule);
+  border-block: 1px solid var(--rule);
 }
 
 .banner figcaption {
@@ -303,10 +303,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--faint);
 }
 
-.banner + .hero { padding-top: clamp(2rem, 5vw, 3.5rem); }
-
 @media (max-width: 34rem) {
-  .banner img { object-position: 30% 50%; }
+  .banner img { object-position: 62% 50%; }
 }
 
 .hero__grid {
