@@ -106,7 +106,7 @@ a {
 
 a:hover { text-decoration-color: currentColor; }
 
-.prose a, .entry__body a, .pubs__doi a, .callout a { font-weight: 700; }
+.prose a, .entry__body a, .pubs__doi a { font-weight: 700; }
 
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -269,12 +269,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: var(--step--1);
   color: var(--text);
   opacity: .5;
-}
-
-.section__intro {
-  max-width: var(--measure);
-  color: var(--muted);
-  margin: -1.5rem 0 2.5rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -882,19 +876,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--muted);
   font-size: calc(var(--step-0) * .95);
   margin-top: .15rem;
-}
-
-/* --------------------------------------------------------------------------
-   11. Teaching extras
-   -------------------------------------------------------------------------- */
-
-.callout {
-  border-left: 3px solid var(--accent-line);
-  background: var(--bg-sunk);
-  border-radius: 0 8px 8px 0;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 2rem;
-  max-width: var(--measure);
 }
 
 /* --------------------------------------------------------------------------
