@@ -284,15 +284,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* Edge-to-edge photo between the hero and About. The file is the whole
-   frame width at 2:1, so it shows the slide and the speaker head to thigh;
-   the height scales with the viewport (capped on very wide screens). */
+   frame width at 2:1; at 35vw tall the frame keeps ~70% of its height,
+   from just above the slide title to just below the speaker's waist. */
 .banner { margin: 0 0 clamp(2.25rem, 5vw, 3.5rem); }
 
 .banner img {
   width: 100%;
-  height: clamp(16rem, 42vw, 64rem);
+  height: clamp(15rem, 35vw, 56rem);
   object-fit: cover;
-  object-position: 55% 38%;
+  object-position: 55% 27%;
   background: var(--bg-sunk);
   border-block: 1px solid var(--rule);
 }
