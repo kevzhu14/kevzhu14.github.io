@@ -8,8 +8,9 @@
    -------------------------------------------------------------------------- */
 
 :root {
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  /* AMSF's font stack, verbatim: San Francisco on Apple devices,
+     Helvetica Neue where installed, Arial otherwise */
+  --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 
   --bg: #ffffff;
   --bg-elev: #ffffff;
@@ -31,7 +32,7 @@
   /* Curtana-style scale: large, window-aware body text (Curtana uses 1.6vw),
      clamped so it stays readable on phones and doesn't balloon on wide screens */
   --step--1: clamp(.82rem, .76rem + .2vw, .95rem);
-  --step-0: clamp(1rem, .8rem + .55vw, 1.25rem);
+  --step-0: clamp(1.0625rem, .725rem + .72vw, 1.4rem);
   --step-1: clamp(1.15rem, .95rem + .6vw, 1.45rem);
   --step-2: clamp(1.6rem, 1.1rem + 1.4vw, 2.4rem);
   --step-3: clamp(2.5rem, 1.4rem + 3.6vw, 4.5rem);
@@ -81,7 +82,7 @@ body {
   font-family: var(--sans);
   font-size: var(--step-0);
   line-height: 1.65;
-  font-feature-settings: "cv01", "cv02", "cv03";   /* SF alternates, as in Curtana */
+  font-feature-settings: "halt", "cv01", "cv02", "cv03";   /* as in AMSF */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -262,13 +263,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .section__title {
   font-size: var(--step-2);
-}
-
-.section__count {
-  font-family: var(--mono);
-  font-size: var(--step--1);
-  color: var(--text);
-  opacity: .5;
 }
 
 /* --------------------------------------------------------------------------
@@ -604,7 +598,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .entry__when {
   grid-column: 2;
-  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
   font-size: var(--step--1);
   color: var(--faint);
   white-space: nowrap;
@@ -753,7 +747,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .pubs > li:not([hidden]) ~ li { border-top: 1px solid var(--rule); }
 
 .pubs__when {
-  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
   font-size: var(--step--1);
   color: var(--faint);
   padding-top: .2rem;
@@ -792,7 +786,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .pubs__doi {
   margin-top: .4rem;
-  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
   font-size: var(--step--1);
   color: var(--faint);
   word-break: break-word;
@@ -848,7 +842,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .awards > li:hover::before { background: var(--accent); border-color: var(--accent); }
 
 .awards__when {
-  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
   font-size: var(--step--1);
   color: var(--faint);
   display: block;
@@ -864,7 +858,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .awards__amount {
   color: var(--accent-text);
-  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
   font-size: var(--step--1);
   margin-left: .5rem;
   white-space: nowrap;
