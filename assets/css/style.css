@@ -876,6 +876,12 @@ ul { margin: 0; padding: 0; list-style: none; }
    every photo in a row ends up the same height with no cropping.
    -------------------------------------------------------------------------- */
 
+.gallery__intro {
+  max-width: var(--measure);
+  margin: -1.25rem 0 2.25rem;
+  color: var(--muted);
+}
+
 .gallery { display: grid; gap: clamp(1.5rem, 3vw, 2.25rem); }
 
 .gallery__row {
