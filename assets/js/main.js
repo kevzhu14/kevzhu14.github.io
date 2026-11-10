@@ -266,6 +266,56 @@
   }
 
   /* ---------------------------------------------------------------------
+     Gallery lightbox: opens the large photo in a <dialog>. Without JS
+     (or <dialog> support) the links simply open the image file.
+     --------------------------------------------------------------------- */
+
+  function lightbox() {
+    var dialog = document.querySelector('.lightbox');
+    var links = Array.prototype.slice.call(document.querySelectorAll('.gallery__link'));
+    if (!dialog || !links.length || typeof dialog.showModal !== 'function') return;
+
+    var img = dialog.querySelector('.lightbox__img');
+    var caption = dialog.querySelector('.lightbox__caption');
+    var current = 0;
+
+    function show(i) {
+      current = (i + links.length) % links.length;
+      var link = links[current];
+      var thumb = link.querySelector('img');
+      var cap = link.parentElement.querySelector('figcaption');
+      img.src = link.getAttribute('href');
+      img.alt = thumb ? thumb.alt : '';
+      caption.textContent = cap ? cap.textContent.replace(/\s+/g, ' ').trim() : '';
+    }
+
+    links.forEach(function (link, i) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        show(i);
+        dialog.showModal();
+      });
+    });
+
+    dialog.querySelector('.lightbox__close').addEventListener('click', function () { dialog.close(); });
+
+    // Clicking the dark area around the photo closes it
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog || event.target.classList.contains('lightbox__figure')) dialog.close();
+    });
+
+    dialog.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowRight') { show(current + 1); event.preventDefault(); }
+      if (event.key === 'ArrowLeft') { show(current - 1); event.preventDefault(); }
+    });
+
+    dialog.addEventListener('close', function () {
+      img.removeAttribute('src');
+      if (links[current]) links[current].focus({ preventScroll: true });
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      Print: open every collapsed entry so nothing is lost on paper
      --------------------------------------------------------------------- */
 
@@ -380,6 +430,7 @@
     filters();
     expandAll();
     anchorFocus();
+    lightbox();
     printing();
     dropStaleServiceWorkers();
     analytics();
